@@ -28,7 +28,8 @@ Assumptions
 ===========
 Before using it, you need to make sure that:
 
-- Using chrome.
+- Using OS X.
+- Using Chrome.
 - Google music page is opened (doesn't matter in which tab nor window) and playing music already. The scripts don't know how to initiate to play music. 
 
 
