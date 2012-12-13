@@ -10,7 +10,7 @@ tell application "Google Chrome"
   end repeat
 
   set code to "
-    var keyCode = 32;
+    var keyCode = 37;
 
     var event = document.createEvent('Events');
     event.initEvent('keydown', true, true);
