@@ -35,7 +35,7 @@ on activeTab()
   tell application "Google Chrome"
     repeat with theWindow in every window
       repeat with theTab in every tab of theWindow
-        if theTab's title ends with "- Google Play" then
+        if theTab's title ends with "- Google Play Music" then
           set targetTab to theTab
           exit repeat
         end if
