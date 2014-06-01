@@ -15,18 +15,17 @@ end control
 on notifyCurrentSong()
   set targetTab to activeTab() of me
 
-  set songCode to "document.querySelector('.playerSongTitle .fade-out-content').innerHTML"
+  set songCode to "document.querySelector('#playerSongTitle').innerHTML"
   set song to executeJavaScript(targetTab, songCode) of me
 
-  set artistCode to "document.querySelector('.playerArtist .fade-out-content').innerHTML"
+  set artistCode to "document.querySelector('.player-artist-album-wrapper').innerText"
   set artist to executeJavaScript(targetTab, artistCode) of me
 
   notify(song, artist) of me
 end notifyCurrentSong
 
 on notify(name, message)
-  set command to "/usr/local/bin/growlnotify -n " & quoted form of name & " -m " & quoted form of message
-  do shell script command
+  display notification message with title name
 end notify
 
 on activeTab()
