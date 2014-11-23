@@ -1,13 +1,13 @@
 google-music-control
 ====================
 
-AppleScript for controlling google music.
+AppleScript for controlling google play music.
 
 
 What is it?
 ===========
 
-``google-music-controll`` is a collection of AppleScript files to control google music opened in web browser.
+``google-music-controll`` is a collection of AppleScript files to control google play music opened in web browser.
 
 
 How to use
@@ -30,13 +30,13 @@ Before using it, you need to make sure that:
 
 - Using OS X.
 - Using Chrome.
-- Google music page is opened (doesn't matter in which tab nor window) and playing music already. The scripts don't know how to initiate to play music. 
+- Google playf music page is opened (doesn't matter in which tab nor window) and playing music already. The scripts don't know how to initiate to play music. 
 
 
 How does it work?
 =================
 
-It uses AppleScript interface that chrome provides and goes through all windows and tabs to find the tab that has google music opened. Then it executes JavaScript on the page that sends appropriate keyboard shortcuts to control it. 
+It uses AppleScript interface that chrome provides and goes through all windows and tabs to find the tab that has google play music opened. Then it executes JavaScript on the page that sends appropriate keyboard shortcuts to control it. 
 
 
 License
