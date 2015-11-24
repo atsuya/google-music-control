@@ -46,11 +46,9 @@ on activeTab()
 end activeTab
 
 on executeJavaScript(activeTab, code)
-  set result to null
-
   tell application "Google Chrome"
-    set result to execute activeTab javascript code
+    tell activeTab to set URL to "javascript:" & code
   end tell
 
-  return result
+  return true
 end executeJavaScript
