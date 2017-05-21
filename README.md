@@ -19,7 +19,7 @@ $ osascript chrome/play-pause.scpt
 ```
 
 ## Linux
-You can simply execute the scripts on terminal. Optionally, you can use [Albert](https://github.com/albertlauncher/albert) or something similar.
+You can simply execute the scripts on terminal. If your desktop environment supports executing a script using hotkey, then that should be able to trigger the scripts.
 
 
 # Assumptions
