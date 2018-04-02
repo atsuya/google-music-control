@@ -12,16 +12,22 @@ on control(keyCode)
   executeJavaScript(targetTab, code) of me
 end control
 
-on notifyCurrentSong()
+on getCurrentSong()
   set targetTab to activeTab() of me
 
-  set songCode to "document.querySelector('#playerSongTitle').innerHTML"
+  set songCode to "document.querySelector('#currently-playing-title').innerHTML"
   set song to executeJavaScript(targetTab, songCode) of me
 
-  set artistCode to "document.querySelector('.player-artist-album-wrapper').innerText"
+  set artistCode to "document.querySelector('.currently-playing-details').innerText"
   set artist to executeJavaScript(targetTab, artistCode) of me
 
-  notify(song, artist) of me
+  return {song, artist}
+end getCurrentSong
+
+on notifyCurrentSong()
+  set songDetails to getCurrentSong() of me
+
+  notify(item 1 of songDetails, item 2 of songDetails) of me
 end notifyCurrentSong
 
 on notify(name, message)
@@ -47,8 +53,6 @@ end activeTab
 
 on executeJavaScript(activeTab, code)
   tell application "Google Chrome"
-    tell activeTab to set URL to "javascript:" & code
+    return execute activeTab javascript code
   end tell
-
-  return true
 end executeJavaScript
