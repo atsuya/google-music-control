@@ -1,10 +1,5 @@
 on control(keyCode)
-  set code to "var keyCode = " & keyCode & ";
-    var event = document.createEvent('Events');
-    event.initEvent('keydown', true, true);
-    event.keyCode = keyCode;
-    event.which = keyCode;
-
+  set code to "var event = new KeyboardEvent('keydown', { keyCode: " & keyCode & " });
     document.dispatchEvent(event);
   "
 
