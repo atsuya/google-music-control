@@ -3,6 +3,10 @@ set Controller to run script ("script s" & return & (read alias (POSIX file (the
 
 set currentTrack to Controller's getCurrentSong()
 
-set output to item 1 of currentTrack & " - " & item 2 of currentTrack
+try
+  set output to quoted form of (item 1 of currentTrack & " - " & item 2 of currentTrack)
+on error
+  set output to ""
+end try
 
-do shell script "echo " & quoted form of output
+do shell script "echo " & output
