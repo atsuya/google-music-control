@@ -4,19 +4,38 @@ on control(keyCode)
   "
 
   set targetTab to activeTab() of me
-  executeJavaScript(targetTab, code) of me
+  if targetTab is not null then
+    executeJavaScript(targetTab, code) of me
+  end if
 end control
+
+on getPlayState()
+  set targetTab to activeTab() of me
+
+  if targetTab is not null then
+    set stateCode to "document.querySelector('#player-bar-play-pause').getAttribute('aria-label')"
+    set oppositeState to executeJavaScript(targetTab, stateCode) of me
+
+    if oppositeState is "Play" then
+      return "Paused"
+    else
+      return "Playing"
+    end if
+  end if
+end getPlayState
 
 on getCurrentSong()
   set targetTab to activeTab() of me
 
-  set songCode to "document.querySelector('#currently-playing-title').innerHTML"
-  set song to executeJavaScript(targetTab, songCode) of me
+  if targetTab is not null then
+    set songCode to "document.querySelector('#currently-playing-title').innerHTML"
+    set song to executeJavaScript(targetTab, songCode) of me
 
-  set artistCode to "document.querySelector('.currently-playing-details').innerText"
-  set artist to executeJavaScript(targetTab, artistCode) of me
+    set artistCode to "document.querySelector('.currently-playing-details').innerText"
+    set artist to executeJavaScript(targetTab, artistCode) of me
 
-  return {song, artist}
+    return {song, artist}
+  end if
 end getCurrentSong
 
 on notifyCurrentSong()
