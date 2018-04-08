@@ -1,6 +1,8 @@
 on control(keyCode)
-  set code to "var event = new KeyboardEvent('keydown', { keyCode: " & keyCode & " });
-    document.dispatchEvent(event);
+  set code to "(function (keyCode) {
+    const event = new KeyboardEvent('keydown', { keyCode })
+    document.dispatchEvent(event)
+  })(" & keyCode & ")
   "
 
   set targetTab to activeTab() of me
